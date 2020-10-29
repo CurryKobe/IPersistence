@@ -1,0 +1,29 @@
+<!--<mapper namespace="user">-->
+<mapper namespace="com.sc.dao.IUserDao">
+    <!--sql的唯一标识：namespace.id来组成 ： statementId-->
+
+
+<!--    <select id="selectList" resultType="com.sc.entity.User">-->
+    <select id="findAll" resultType="com.sc.entity.User">
+        select * from user
+    </select>
+
+<!--    <select id="selectOne" resultType="com.sc.entity.User" paramterType="com.sc.entity.User">-->
+    <select id="findByCondition" resultType="com.sc.entity.User" paramterType="com.sc.entity.User">
+        select * from user where id = #{id} and username = #{username}
+    </select>
+
+    <insert id="insert" paramterType="com.sc.entity.User">
+        insert into user (id, username, password, birthday) values (#{id}, #{username}, #{password}, #{birthday})
+    </insert>
+
+    <update id="update" paramterType="com.sc.entity.User">
+        update user set username=#{username}, password=#{password}, birthday=#{birthday} where id=#{id}
+    </update>
+
+    <delete id="delete" paramterType="com.sc.entity.User">
+        delete from user where id=#{id}
+    </delete>
+
+
+</mapper>
